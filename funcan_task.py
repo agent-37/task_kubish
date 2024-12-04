@@ -1,8 +1,6 @@
 from cmath import sqrt
-from email.utils import collapse_rfc2231_value
+import matplotlib.pyplot as plt
 
-from PIL.ImageOps import expand
-from mpmath import zeros
 from sympy import Matrix, sin, integrate, simplify, expand, solve, diff, pretty, div, collect
 from sympy.abc import x, y, l, a
 
@@ -141,3 +139,17 @@ for i in range(len(all_root)):
     bb  = integrate(expand(f * all_func[i].subs(y,x)), (x, 0, 1)).evalf()
     print( bb, '///', (bb- a* bb.coeff(a)) / bb.coeff(a) )
     # print(f'f_{i+1}={ sqrt(integrate(expand(f * all_func[i].subs(y,x)), (x, 0, 1)).evalf()).real}')
+dh=0.001
+points=[]
+pos =0
+res = [[],[],[],[],[]]
+while pos<1:
+    for i in range(len(all_func)):
+        # print(all_func[i].subs(y,pos).evalf(),pos)
+        res[i].append(all_func[i].subs(y,pos).evalf())
+    points.append(pos)
+    pos+= dh
+for i in range(len(res)):
+    plt.plot(points,res[i],label=f'u_{i+1}')
+plt.legend(loc='upper left')
+plt.show()
