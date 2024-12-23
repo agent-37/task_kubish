@@ -8,8 +8,8 @@ from sympy.abc import x, y, l, a
 
 all_root, all_func = [],[]
 
-gamma = Matrix([sin(y), sin(3 * y), y ** 2, y ** 3, y ** 4])
-v2 = Matrix([4 * sin(y), sin(3 * y), y ** 2, y ** 3, y ** 4])
+gamma = Matrix([sin(y), sin(2*y), sin(3*y), y**2, y**4])
+v2 = Matrix([sin(y), 2 * sin(2*y), sin(3*y), y**2, y**4])
 for _ in range(5):
     mm = Matrix([[0.0, 0.0, 0.0, 0.0, 0.0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]])
 
